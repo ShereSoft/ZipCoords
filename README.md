@@ -6,6 +6,7 @@
 * Light-weight
 * No library dependencies
 * No external calls
+* Assemblies available for .NET Core, .NET Standard, .NET Framework 2.0 and 4.0
 
 ### .GetCoordinates(zipcode)
 ```csharp
@@ -23,4 +24,15 @@ var destinationZipcode = "97201";
 var mileage = ZipCoords.GetMileage(originZipcode, destinationZipcode);
 
 Console.WriteLine(mileage);  // 1041.7590375429163
+```
+
+### .GetMileDistance(originLatitude, originLongitude, destinationLatitude, destinationLongitude)
+```csharp
+var originLatitude = 45.508743;
+var originLongitude = -122.689238;
+var destinationLatitude = 34.097449;
+var destinationLongitude = -118.412061;
+
+var distance = ZipCoords.GetMileDistance(originLatitude, originLongitude, destinationLatitude, destinationLongitude);
+Console.WriteLine(distance);  // 944.474357568509
 ```
