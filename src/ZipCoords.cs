@@ -1,5 +1,7 @@
 ﻿using System;
+#if !NET20
 using System.Linq;
+#endif
 using System.Collections.Generic;
 
 public partial class ZipCoords
@@ -53,12 +55,18 @@ public partial class ZipCoords
 
         var ocoords = GetCoordinates(originZipcode);
         var dcoords = GetCoordinates(destinationZipcode);
-        var latdiff = Math.Max(ocoords[0], dcoords[0]) - Math.Min(ocoords[0], dcoords[0]);
-        var londiff = Math.Max(ocoords[1], dcoords[1]) - Math.Min(ocoords[1], dcoords[1]);
+
+        return GetMileDistance(ocoords[0], ocoords[1], dcoords[0], dcoords[1]);
+    }
+
+    //NEW: 
+    public static double GetMileDistance(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
+    {
+        var latdiff = Math.Abs(destinationLatitude - originLatitude);
+        var londiff = Math.Abs(destinationLongitude - originLongitude);
         var la = latdiff * 69.0;
         var lo = londiff * 54.6;
         var straight = Math.Sqrt((la * la) + (lo * lo));
-
         var adjusted = straight * 1.15;
 
         return adjusted;
@@ -71,9 +79,16 @@ public partial class ZipCoords
             throw new ArgumentNullException(nameof(zipcode));
         }
 
+#if !NET20
         if (zipcode.Length != 5 || !zipcode.All(Char.IsNumber))
         {
             throw new ArgumentException($"'{zipcode}' is not a valid ZIP code");
         }
+#else
+        if (zipcode.Length != 5 || !Char.IsNumber(zipcode[0]) || !Char.IsNumber(zipcode[1]) || !Char.IsNumber(zipcode[2]) || !Char.IsNumber(zipcode[3]) || !Char.IsNumber(zipcode[4]))
+        {
+            throw new ArgumentException($"'{zipcode}' is not a valid ZIP code");
+        }
+#endif
     }
 }
