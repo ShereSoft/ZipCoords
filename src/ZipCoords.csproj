@@ -1,20 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;netstandard2.0;net20;net40</TargetFrameworks>
+    <TargetFrameworks>netcoreapp1.0;netcoreapp2.0;netstandard2.0;net20;net40</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.0</Version>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <Version>1.2.1</Version>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
     <PackageId>ZipCoords</PackageId>
     <Description>Provides latitude and longitude coordinates from ZIP codes (50 states + DC) and more. Light-weight assembly built for various frameworks. No dependencies.</Description>
     <Authors>ZC</Authors>
     <PackageProjectUrl>https://github.com/ShereSoft/ZipCoords</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ShereSoft/ZipCoords</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <FileVersion>1.2.0.0</FileVersion>
+    <FileVersion>1.2.1.0</FileVersion>
     <PackageTags>Zip Code, zipcode, coordinates, latitude, longitude, geo</PackageTags>
-    <PackageReleaseNotes>*Assemblies available for specific frameworks (natively supports .NET 2.0, .NET 4.0, .NET Core 1.0, .NET Standard 2.0)
+    <PackageReleaseNotes>*Assemblies available for specific frameworks (natively supports .NET 2.0, .NET 4.0, .NET Core 1.0, .NET Core 2.0, .NET Standard 2.0)
 *Added GetMileDistance(originLatitude, originLongitude, destinationLatitude, destinationLongitude) method</PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
